@@ -9,6 +9,8 @@ RUN faas-cli version
 
 RUN brew install docker
 RUN docker -v
+RUN sudo groupadd docker
+RUN sudo gpasswd -a ${USER} docker
 
 RUN sudo apt-get install -y supervisor
 ADD supervisord.conf /etc/supervisord.conf
