@@ -7,11 +7,11 @@ RUN brew -v
 RUN brew install faas-cli
 RUN faas-cli version
 
-RUN brew install docker
-RUN docker -v
+#RUN brew install docker
+#RUN docker -v
 
-RUN sudo apt-get install -y supervisor
-ADD supervisord.conf /etc/supervisord.conf
+#RUN sudo apt-get install -y supervisor
+#ADD supervisord.conf /etc/supervisord.conf
 
 # 起動
-CMD /usr/bin/supervisord -c /etc/supervisord.conf
+#CMD /usr/bin/supervisord -c /etc/supervisord.conf
