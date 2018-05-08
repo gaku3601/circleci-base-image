@@ -7,7 +7,7 @@ RUN brew -v
 RUN brew install faas-cli
 RUN faas-cli version
 
-#RUN brew install docker
+RUN brew install docker
 #RUN docker -v
 
 #RUN sudo apt-get install -y supervisor
