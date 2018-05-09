@@ -15,6 +15,11 @@ RUN set -x &&\
     sudo mv /tmp/docker/* /usr/bin
 RUN docker -v
 
+RUN curl -L -o ./rancher.tar.gz https://github.com/rancher/cli/releases/download/v2.0.1-rc1/rancher-linux-amd64-v2.0.1-rc1.tar.gz &&\
+tar xvzf ./rancher.tar.gz &&\
+rm ./rancher.tar.gz &&\
+rm -rf rancher-v2.0.1-rc1
+
 # rancher cli install -- 原因切り分けコメントアウト
 # RUN curl -L -o /tmp/rancher-v2.0.1-rc1.tar.gz https://github.com/rancher/cli/releases/download/v2.0.1-rc1/rancher-linux-amd64-v2.0.1-rc1.tar.gz &&\
 #     cd /tmp &&\
