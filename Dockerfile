@@ -16,9 +16,8 @@ RUN set -x &&\
 RUN docker -v
 
 # rancher cli install
-RUN VER="v2.0.1-rc1" &&\
-    curl -L -o /tmp/rancher-$VER.tar.gz https://github.com/rancher/cli/releases/download/$VER/rancher-linux-amd64-$VER.tar.gz &&\
+RUN curl -L -o /tmp/rancher-v2.0.1-rc1.tar.gz https://github.com/rancher/cli/releases/download/v2.0.1-rc1/rancher-linux-amd64-v2.0.1-rc1.tar.gz &&\
     cd /tmp &&\
-    sudo tar xvzf /tmp/rancher-$VER.tar.gz &&\
-    sudo mv /tmp/rancher-$VER/* /usr/bin
+    sudo tar xvzf /tmp/rancher-v2.0.1-rc1.tar.gz &&\
+    sudo mv /tmp/rancher-v2.0.1-rc1/rancher /usr/bin
 RUN rancher -v
