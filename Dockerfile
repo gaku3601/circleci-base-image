@@ -22,3 +22,12 @@ RUN curl -L -o ./rancher.tar.gz https://github.com/rancher/cli/releases/download
     rm ./rancher.tar.gz &&\
     rm -rf rancher-v2.0.1-rc1
 RUN rancher -v
+
+# aws-cli install
+RUN brew install awscli
+RUN aws --version
+
+# npm install
+RUN brew install node
+RUN npm -v
+RUN node -v
