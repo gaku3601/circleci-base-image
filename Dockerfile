@@ -28,6 +28,10 @@ RUN brew install awscli
 RUN aws --version
 
 # npm install
-RUN brew install node
-RUN npm -v
-RUN node -v
+RUN sudo apt-get install -y curl
+RUN sudo apt-get install -my wget gnupg
+RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+RUN sudo apt-get install -y nodejs
+RUN sudo npm i npm@latest -g
+RUN sudo npm -v
+RUN sudo node -v
