@@ -1,37 +1,10 @@
-FROM linuxbrew/linuxbrew:1.6.3
+FROM circleci/node:latest
 
 RUN sudo apt-get update
-RUN brew -v
-
-# faas cli install
-RUN brew install faas-cli
-RUN faas-cli version
-
-# docker install
-RUN set -x &&\
-    VER="17.03.0-ce" &&\
-    curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz &&\
-    tar -xz -C /tmp -f /tmp/docker-$VER.tgz &&\
-    sudo mv /tmp/docker/* /usr/bin
-RUN docker -v
-
-# rancher install
-RUN curl -L -o ./rancher.tar.gz https://github.com/rancher/cli/releases/download/v2.0.1-rc1/rancher-linux-amd64-v2.0.1-rc1.tar.gz &&\
-    tar xvzf ./rancher.tar.gz &&\
-    sudo mv ./rancher-v2.0.1-rc1/rancher /usr/bin &&\
-    rm ./rancher.tar.gz &&\
-    rm -rf rancher-v2.0.1-rc1
-RUN rancher -v
 
 # aws-cli install
-RUN brew install awscli
+RUN sudo apt-get update -qq && sudo apt-get install -y postgresql python-pip python-dev build-essential
+RUN sudo pip install --upgrade pip
+RUN sudo pip install --upgrade virtualenv
+RUN sudo pip install awscli
 RUN aws --version
-
-# npm install
-RUN sudo apt-get install -y curl
-RUN sudo apt-get install -my wget gnupg
-RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
-RUN sudo apt-get install -y nodejs
-RUN sudo npm i npm@latest -g
-RUN sudo npm -v
-RUN sudo node -v
