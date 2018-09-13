@@ -8,3 +8,6 @@ RUN sudo pip install --upgrade pip
 RUN sudo pip install --upgrade virtualenv
 RUN sudo pip install awscli
 RUN aws --version
+
+# firebase install
+RUN sudo npm install -g firebase-tools
